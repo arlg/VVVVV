@@ -84,7 +84,7 @@ Score.prototype = {
 			//Slight gobal acceleration over time -- gravitation force ;)
 
 			if(GLOBAL_VARS.GAME_ENDED === false){
-				GLOBAL_VARS.ACCELERATION += GLOBAL_VARS.CURRENT_TIME/50000;
+				GLOBAL_VARS.ACCELERATION += GLOBAL_VARS.CURRENT_TIME/25000;
 			}
 
 		}

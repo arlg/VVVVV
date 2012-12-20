@@ -26,7 +26,7 @@ Game.prototype = {
 
 		//METHODS
 		this.initCanvas();
-		this.initStats();
+		//this.initStats();
 
 		this.displaygraphics = new DisplayGraphics(this.ctx);
 
@@ -69,7 +69,7 @@ Game.prototype = {
 
 	//This is the main loop
 	frame: function() {
-		this.stats.begin();
+		//this.stats.begin();
 
 			this.setDelta();
 
@@ -81,7 +81,7 @@ Game.prototype = {
 				return that.frame();
 			});
 
-		that.stats.end();
+		//that.stats.end();
 	},
 
 	//Game sprites moves depending on the ∆ time, not the fps
