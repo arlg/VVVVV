@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>VVVVV !</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+
+        <link rel="shortcut icon" type="image/png" href="favicon.png" />
+        <link rel="shortcut icon" type="image/ico" href="favicon.ico" />
+        <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57-precomposed.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72-precomposed.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114-precomposed.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144-precomposed.png" />
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+
+    <body>
+        <p id="preload">loading - <span id="preloadednumber"></span> %</p>
+        <div id="vvvvv">
+            <div id="inside">
+                <div id="game">
+                    <canvas id='canvas'></canvas>
+                    <div id="vvvvv-moon"></div>
+                    <div id="vvvvv-end"></div>
+                    <div id="vvvvv-sky"></div>
+                </div>
+
+                <div id="menus">
+                    <div id="home" class="menu">
+                        <img src="img/home/presents-retina.png" alt="Christmas Experiments presents" width="221" height="9"  class="presents anim"/>
+                        <img src="img/home/vvvvv-title.png" alt="VVVVV !" width="231" height="54" class=" title anim"/>
+
+                        <div class="play-btn"></div>
+                        <div class="highscores-btn"></div>
+                        <div class="devices"></div>
+                        <img src="img/home/santaintro2.gif" alt="VVVVV !" width="334" height="224" class="santagif"/>
+                        <img src="img/home/credits.png" alt="V" width="47" height="8" class="credits-btn"/>
+                    </div>
+
+                    <div id="game-ui">
+                        <div id="counters">
+                            <div>
+                                <p>boost</p>
+                                <div></div>
+                            </div>
+                            <div>
+                                <p>score</p>
+                                <div></div>
+                            </div>
+                        </div>
+                        <canvas id='canvas-scores'></canvas>
+                    </div>
+
+
+                    <div id="end" class="menu hide">
+                        <img src="img/end/yourscore.png" alt="Your Score" width="84" height="9" />
+                        <div id="endscore">
+                            <p></p>
+                        </div>
+                        <form class="form-score" action="/" method="post">
+                            <input type="text" name="name" class="name" placeholder="enter your name" maxlength="9" value="" />
+                            <button type="submit"  class="submit" ></button>
+                        </form>
+                        <div class="btns">
+                            <div class="replay"></div>
+                            <div class="highscores"></div>
+                        </div>
+                        <img src="img/home/credits.png" alt="V" width="47" height="8" class="credits-btn anim"/>
+                        <img src="assets/graphics/santa/win.gif" alt="" width="90" height="90" class="santawin">
+                    </div>
+
+                    <div id="highscores" class="menu hide">
+                        <img src="img/home/vvvvv-title.png" alt="VVVVV !" width="231" height="54" class=" title anim"/>
+                         <div class="back-btn"></div>
+                         <div class="grid">
+                            <div class="table-wrapper">
+                                <div class="table"></div>
+                            </div>
+                            <div class="arrows">
+                                <div class="top"></div>
+                                <div class="bottom"></div>
+                            </div>
+                         </div>
+                         <img src="img/home/credits.png" alt="V" width="47" height="8" class="credits-btn anim"/>
+                    </div>
+
+                    <div id="credits" class="menu hide">
+                        <img src="img/home/vvvvv-title.png" alt="VVVVV !" width="231" height="54" class=" title anim"/>
+                        <div class="back-btn"></div>
+                        <div class="credits-image"></div>
+                        <div class="profile">
+                            <a href="http://www.arlg.me" target="_blank">
+                                <img src="img/credits/aurelien.png" alt="" width="66" height="62">
+                            </a>
+                            <div>
+                                <a href="http://www.arlg.me" target="_blank">Aurélien</a>
+                                <p> --- Development</p>
+                            </div>
+                        </div>
+                        <div class="profile">
+                            <a href="http://catherineuhlrich.com/" target="_blank">
+                                <img src="img/credits/cath.png" alt="" width="66" height="62">
+                            </a>
+                            <div>
+                                <a href="http://catherineuhlrich.com/" target="_blank">Catherine</a>
+                                <p> --- Design</p>
+                            </div>
+                        </div>
+                        <p class="music"><a href="https://www.youtube.com/watch?v=4lCuxxOeSBs" target="_blank">--- Music by Rush Coil</a></p>
+                    </div>
+                </div><!-- /#menus -->
+            </div>
+        </div><!-- /#vvvvv -->
+
+        <!-- MUSIC -->
+        <audio id="sound-game-background" preload="auto" loop="loop">
+            <source src="assets/sounds/8bitchristmastree-low.mp3" />
+            <source src="assets/sounds/8bitchristmastree.ogg" />
+        </audio>
+
+        <audio id="sound-game-home" preload="auto" loop="loop">
+            <source src="assets/sounds/8bitchristmastree-home.mp3" />
+            <source src="assets/sounds/8bitchristmastree-home.ogg" />
+        </audio>
+
+        <!-- SFXs -->
+        <!-- Bonus -->
+        <audio id="bonus1" preload="auto" src="assets/sounds/sfx/bonus1.wav"></audio> <!-- Blip001 -->
+        <audio id="bonus2" preload="auto" src="assets/sounds/sfx/bonus2.wav"></audio> <!-- Blip021 -->
+        <audio id="bonus3" preload="auto" src="assets/sounds/sfx/bonus3.wav"></audio>
+
+        <!--  Malus -->
+        <audio id="malus1" preload="auto" src="assets/sounds/sfx/malus1.wav"></audio> <!-- Kick006 -->
+        <audio id="malus2" preload="auto" src="assets/sounds/sfx/malus2.wav"></audio> <!-- Kick001 -->
+        <audio id="malus3" preload="auto" src="assets/sounds/sfx/malus3.wav"></audio>
+
+        
+
+        <script src="js/plugins.js"></script>
+
+
+        <script src="js/Consts/Consts.js"></script>
+        <script src="js/Main.js"></script>
+
+        <script src="js/Utils/Utils.js"></script>
+
+        <script src="js/Utils/Stats.js"></script>
+
+        <!-- CLOUDS -->
+        <script src="js/Entities/Clouds/FrontCloud.js"></script>
+        <script src="js/Entities/Clouds/MidCloud.js"></script>
+        <script src="js/Entities/Clouds/BackClouds.js"></script>
+        <script src="js/Entities/Clouds/Clouds.js"></script>
+
+
+        <script src="js/Entities/Santa.js"></script>
+
+        <script src="js/Entities/Score.js"></script>
+
+        <!-- BONUSES -->
+        <script src="js/Entities/Bonuses/Presents.js"></script>
+        <script src="js/Entities/Bonuses/Hood.js"></script>
+        <script src="js/Entities/Bonuses/RangiferTarandus.js"></script>
+        <script src="js/Entities/Bonuses/Bonuses.js"></script>
+
+        <!-- MALUSES -->
+        <script src="js/Entities/Maluses/Snow.js"></script>
+        <script src="js/Entities/Maluses/Yeti.js"></script>
+        <script src="js/Entities/Maluses/Thunder.js"></script>
+        <script src="js/Entities/Maluses/Maluses.js"></script>
+
+        <script src="js/DisplayGraphics.js"></script>
+        <script src="js/Game.js"></script>
+
+        <!-- SOUNDS -->
+        <script src="js/SoundManager.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+         <script>
+        //     var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        //     (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        //     g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        //     s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+    </body>
+</html>

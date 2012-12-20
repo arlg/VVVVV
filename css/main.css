@@ -1,0 +1,385 @@
+/**********
+VARS
+**********/
+/**********
+FONT-FACES
+**********/
+@font-face {
+  font-family: 'OCRAStd';
+  src: url("../assets/fonts/ocrastd.eot");
+  src: url("../assets/fonts/ocrastd.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/ocrastd.woff") format("woff"), url("../assets/fonts/ocrastd.ttf") format("truetype"), url("../assets/fonts/ocrastd.svg#ocrastd") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+/**********
+MIXINS
+**********/
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background: #222;
+  background: url("../img/background.png");
+  width: 100%;
+  background-position: center center;
+  height: 675px;
+  overflow: hidden;
+  background-size: cover; }
+
+#preload {
+  font: 11px/15px OCRAStd, Arial, sans-serif;
+  color: #ecf1e5; }
+
+canvas {
+  font: 13px/15px OCRAStd, Arial, sans-serif;
+  color: #FFF;
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  top: 0; }
+
+#vvvvv {
+  font: 13px/15px OCRAStd, Arial, sans-serif;
+  margin: -250px 0 0 -171px;
+  background: url("../img/contour.png") #c2b197;
+  width: 343px;
+  height: 503px;
+  left: 50%;
+  top: 50%;
+  overflow: hidden;
+  display: none;
+  position: absolute; }
+  #vvvvv.bonus {
+    background: url("../img/contour-bonus.png") #c2b197; }
+  #vvvvv.malus {
+    background: url("../img/contour-malus.png") #c2b197; }
+
+#inside {
+  width: 320px;
+  height: 480px;
+  position: absolute;
+  top: 10px;
+  overflow: hidden;
+  left: 10px; }
+
+#vvvvv-sky {
+  position: absolute;
+  top: 0;
+  width: 320px;
+  height: 945px;
+  background: url("../assets/bg.png") repeat-x; }
+
+#vvvvv-moon {
+  position: absolute;
+  left: 240px;
+  z-index: 4;
+  top: -500px;
+  width: 25px;
+  height: 23px;
+  background: url("../assets/moon.png"); }
+
+#vvvvv-end {
+  position: absolute;
+  top: -3762px;
+  width: 320px;
+  height: 243px;
+  z-index: 10;
+  background: url("../assets/graphics/maison.gif") repeat-x; }
+
+.play-btn, .highscores-btn, .back-btn {
+  margin: 0 auto 5px auto;
+  background: url("../img/home/sprite.png");
+  width: 201px;
+  height: 42px;
+  cursor: pointer;
+  background-size: 100%; }
+
+.back-btn {
+  margin: 40px auto 5px auto;
+  background-position: 0 -86px; }
+
+.credits-btn {
+  position: absolute;
+  z-index: 1;
+  bottom: 12px;
+  left: 140px;
+  cursor: pointer; }
+
+#menus > div {
+  width: 320px;
+  height: 480px;
+  position: absolute;
+  z-index: 10;
+  top: 0; }
+  #menus > div#home {
+    z-index: 15; }
+    #menus > div#home.launchanim {
+      top: -290px;
+      -moz-transition: all 1000ms cubic-bezier(0.165, 0.84, 0.44, 1);
+      -o-transition: all 1000ms cubic-bezier(0.165, 0.84, 0.44, 1);
+      -ms-transition: all 1000ms cubic-bezier(0.165, 0.84, 0.44, 1);
+      -webkit-transition: all 1000ms cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition: all 1000ms cubic-bezier(0.165, 0.84, 0.44, 1); }
+      #menus > div#home.launchanim .presents, #menus > div#home.launchanim .title, #menus > div#home.launchanim .play-btn, #menus > div#home.launchanim .highscores-btn, #menus > div#home.launchanim .credits-btn, #menus > div#home.launchanim .devices {
+        -moz-transition: all 800ms cubic-bezier(0.165, 0.84, 0.44, 1);
+        -o-transition: all 800ms cubic-bezier(0.165, 0.84, 0.44, 1);
+        -ms-transition: all 800ms cubic-bezier(0.165, 0.84, 0.44, 1);
+        -webkit-transition: all 800ms cubic-bezier(0.165, 0.84, 0.44, 1);
+        transition: all 800ms cubic-bezier(0.165, 0.84, 0.44, 1);
+        opacity: 0; }
+      #menus > div#home.launchanim .credits-btn {
+        display: none; }
+    #menus > div#home .presents {
+      margin: 30px auto 15px auto; }
+    #menus > div#home .title {
+      margin: 0 auto 30px auto; }
+    #menus > div#home .play-btn, #menus > div#home .highscores-btn, #menus > div#home .credits-btn {
+      cursor: pointer;
+      margin: 0 auto; }
+    #menus > div#home .play-btn {
+      margin: 0 auto 5px auto; }
+    #menus > div#home .highscores-btn {
+      background-position: 0 -43px;
+      margin: 0 auto 20px auto; }
+    #menus > div#home .devices {
+      margin: 0 auto;
+      background: url("../img/home/devices.png");
+      width: 81px;
+      height: 45px;
+      background-size: 100%; }
+    #menus > div#home .credits-btn {
+      position: absolute;
+      z-index: 1;
+      bottom: 12px;
+      left: 140px;
+      cursor: pointer; }
+    #menus > div#home .santagif.goaway {
+      -moz-transform: translate3d(-350px, 0, 0);
+      -o-transform: translate3d(-350px, 0, 0);
+      -ms-transform: translate3d(-350px, 0, 0);
+      -webkit-transform: translate3d(-350px, 0, 0);
+      transform: translate3d(-350px, 0, 0);
+      opacity: 0;
+      -moz-transition: all 800ms cubic-bezier(0.165, 0.84, 0.44, 1);
+      -o-transition: all 800ms cubic-bezier(0.165, 0.84, 0.44, 1);
+      -ms-transition: all 800ms cubic-bezier(0.165, 0.84, 0.44, 1);
+      -webkit-transition: all 800ms cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition: all 800ms cubic-bezier(0.165, 0.84, 0.44, 1); }
+  #menus > div#game-ui {
+    z-index: 10;
+    display: block;
+    top: -100px; }
+    #menus > div#game-ui.active {
+      top: 0px;
+      -moz-transition: top 800ms cubic-bezier(0.165, 0.84, 0.44, 1);
+      -o-transition: top 800ms cubic-bezier(0.165, 0.84, 0.44, 1);
+      -ms-transition: top 800ms cubic-bezier(0.165, 0.84, 0.44, 1);
+      -webkit-transition: top 800ms cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition: top 800ms cubic-bezier(0.165, 0.84, 0.44, 1); }
+    #menus > div#game-ui #counters {
+      float: right;
+      margin: 10px 10px 0 0; }
+      #menus > div#game-ui #counters > div {
+        float: left; }
+        #menus > div#game-ui #counters > div p {
+          margin: 0 12px 0;
+          display: block;
+          text-align: left;
+          color: #ecf1e5; }
+        #menus > div#game-ui #counters > div div {
+          background: url("../img/game/score.png");
+          background-position: 0 -22px;
+          width: 66px;
+          height: 22px;
+          margin: 0 12px 0; }
+        #menus > div#game-ui #counters > div:last-child p {
+          margin: 0; }
+        #menus > div#game-ui #counters > div:last-child div {
+          margin: 0;
+          background-position: 0 0px; }
+  #menus > div#end {
+    display: none;
+    height: 380px;
+    padding: 100px 0 0 0; }
+    #menus > div#end p {
+      color: #ecf1e5; }
+    #menus > div#end #endscore {
+      background: url("../img/end/endscore.png");
+      width: 206px;
+      height: 46px;
+      background-size: 100%;
+      margin: 0 auto 8px auto; }
+      #menus > div#end #endscore p {
+        line-height: 49px;
+        font-size: 18px; }
+        #menus > div#end #endscore p.valid {
+          color: #128828; }
+    #menus > div#end form {
+      width: 210px;
+      margin: 0 auto; }
+      #menus > div#end form:after {
+        content: ".";
+        visibility: hidden;
+        display: block;
+        height: 0;
+        clear: both; }
+      #menus > div#end form .name {
+        background: url("../img/end/input.png");
+        width: 136px;
+        height: 42px;
+        padding: 0 10px;
+        background-size: 100%;
+        color: #6B5557;
+        border: 0 none;
+        float: left;
+        font: 13px/42px OCRAStd, Arial, sans-serif; }
+        #menus > div#end form .name:focus {
+          outline: none; }
+      #menus > div#end form .submit {
+        cursor: pointer;
+        background: url("../img/end/submit.png");
+        width: 52px;
+        margin: 0;
+        height: 42px;
+        border: 0 none;
+        background-size: 100%; }
+    #menus > div#end .btns {
+      margin: 5px auto 10px auto;
+      width: 210px; }
+      #menus > div#end .btns:after {
+        content: ".";
+        visibility: hidden;
+        display: block;
+        height: 0;
+        clear: both; }
+      #menus > div#end .btns .replay {
+        cursor: pointer;
+        background: url("../img/end/replay.png");
+        width: 76px;
+        margin: 0;
+        height: 42px;
+        float: left;
+        background-size: 100%; }
+      #menus > div#end .btns .highscores {
+        background: url("../img/end/highscores.png");
+        width: 123px;
+        margin: 0 0 0 87px;
+        height: 41px;
+        cursor: pointer;
+        background-size: 100%; }
+    #menus > div#end .santawin {
+      position: absolute;
+      bottom: -200px;
+      left: 118px; }
+      #menus > div#end .santawin.active {
+        bottom: 30px;
+        -moz-transition: all 800ms cubic-bezier(0.175, 0.885, 0.32, 1.275) 2000ms;
+        -o-transition: all 800ms cubic-bezier(0.175, 0.885, 0.32, 1.275) 2000ms;
+        -ms-transition: all 800ms cubic-bezier(0.175, 0.885, 0.32, 1.275) 2000ms;
+        -webkit-transition: all 800ms cubic-bezier(0.175, 0.885, 0.32, 1.275) 2000ms;
+        transition: all 800ms cubic-bezier(0.175, 0.885, 0.32, 1.275) 2000ms; }
+  #menus > div#highscores, #menus > div#credits {
+    margin: 20px 0 0 0;
+    display: none; }
+    #menus > div#highscores .grid, #menus > div#credits .grid {
+      margin: 0 auto 40px auto;
+      background: url("../img/highscores/grid1.png");
+      width: 258px;
+      height: 214px;
+      position: relative;
+      background-size: 100%; }
+      #menus > div#highscores .grid .arrows div, #menus > div#credits .grid .arrows div {
+        background: url("../img/highscores/arrows.png");
+        right: 10px;
+        top: 50px;
+        width: 20px;
+        height: 16px;
+        background-size: 100%;
+        position: absolute;
+        cursor: pointer; }
+        #menus > div#highscores .grid .arrows div.bottom, #menus > div#credits .grid .arrows div.bottom {
+          top: 172px;
+          background-position: 0 -16px; }
+      #menus > div#highscores .grid .table-wrapper, #menus > div#credits .grid .table-wrapper {
+        position: relative;
+        top: 50px;
+        overflow: hidden;
+        height: 145px; }
+      #menus > div#highscores .grid .table, #menus > div#credits .grid .table {
+        display: block;
+        position: absolute;
+        top: 0; }
+        #menus > div#highscores .grid .table > div, #menus > div#credits .grid .table > div {
+          display: table-row; }
+          #menus > div#highscores .grid .table > div.thisplayer > div, #menus > div#credits .grid .table > div.thisplayer > div {
+            color: #d32424; }
+          #menus > div#highscores .grid .table > div > div, #menus > div#credits .grid .table > div > div {
+            display: table-cell;
+            color: #ecf1e5;
+            height: 25px; }
+            #menus > div#highscores .grid .table > div > div:first-child, #menus > div#credits .grid .table > div > div:first-child {
+              width: 53px; }
+            #menus > div#highscores .grid .table > div > div:nth-child(2), #menus > div#credits .grid .table > div > div:nth-child(2) {
+              width: 87px;
+              text-align: left; }
+            #menus > div#highscores .grid .table > div > div:nth-child(3), #menus > div#credits .grid .table > div > div:nth-child(3) {
+              width: 32px; }
+    #menus > div#highscores .credits-image, #menus > div#credits .credits-image {
+      background: url("../img/home/sprite.png");
+      width: 201px;
+      height: 42px;
+      margin: 10px auto;
+      background-position: 0 -128px;
+      background-size: 100%; }
+    #menus > div#highscores .profile, #menus > div#credits .profile {
+      width: 201px;
+      margin: 0 auto;
+      text-align: left;
+      height: 70px; }
+      #menus > div#highscores .profile img, #menus > div#credits .profile img {
+        float: left; }
+      #menus > div#highscores .profile div, #menus > div#credits .profile div {
+        float: left;
+        padding: 15px 0 0 8px; }
+        #menus > div#highscores .profile div p, #menus > div#credits .profile div p {
+          font-size: 11px;
+          color: #ECF1E5; }
+        #menus > div#highscores .profile div a, #menus > div#credits .profile div a {
+          font-size: 12px;
+          color: blue; }
+    #menus > div#highscores .music a, #menus > div#credits .music a {
+      color: #ecf1e5;
+      font-size: 11px; }
+
+input::-webkit-input-placeholder {
+  color: #6B5557; }
+
+input:-moz-placeholder {
+  color: #6B5557; }
+
+input:-ms-input-placeholder {
+  color: #6B5557; }
+
+@media only screen and (max-device-width: 480px) {
+  body {
+    background: #222;
+    width: 320px;
+    height: 480px;
+    overflow: auto; }
+
+  #vvvvv {
+    background: none;
+    width: 320px;
+    height: 480px;
+    position: relative;
+    left: 0;
+    top: 0;
+    margin: 0; }
+
+  #inside {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 320px;
+    height: 480px;
+    overflow: hidden; } }

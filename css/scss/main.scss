@@ -1,0 +1,539 @@
+// /*
+//  * VVVVV - CSS / SCSS
+//  * Menus, buttons, ...
+//  * @author aurelieng http://www.arlg.me
+//  *  sass --watch css/scss/main.scss:css/main.css
+//  */
+
+
+//Mixins CSS3
+@import 'css3-sass-mixins';
+
+/**********
+VARS
+**********/
+$font-color : #ECF1E5;
+//Colors
+
+
+//Sizes
+
+
+//Cubic-bezier
+
+
+/**********
+FONT-FACES
+**********/
+@font-face {
+    font-family: 'OCRAStd';
+    src: url('../assets/fonts/ocrastd.eot');
+    src: url('../assets/fonts/ocrastd.eot?#iefix') format('embedded-opentype'),
+         url('../assets/fonts/ocrastd.woff') format('woff'),
+         url('../assets/fonts/ocrastd.ttf') format('truetype'),
+         url('../assets/fonts/ocrastd.svg#ocrastd') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/**********
+MIXINS
+**********/
+@mixin clearfix{
+    &:after{
+        content: ".";
+        visibility: hidden;
+        display: block;
+        height: 0;
+        clear: both;
+    }
+}
+
+body {  
+    margin:0;  
+    padding:0;  
+    text-align:center;  
+    background: #222;
+    background : url("../img/background.png");
+    width: 100%;
+    background-position: center center;
+    height: 675px;
+    overflow: hidden;
+    background-size: cover;
+}  
+
+  
+#preload{
+    font: 11px/15px OCRAStd, Arial, sans-serif;
+    color: $font-color;
+}
+
+canvas{  
+    font: 13px/15px OCRAStd, Arial, sans-serif;
+    color: #FFF;
+    position: absolute;
+    z-index: 5;
+    left: 0;
+    top: 0;
+
+
+}  
+
+#vvvvv{
+    font: 13px/15px OCRAStd, Arial, sans-serif;
+    margin: -250px 0 0 -171px;
+    background: url("../img/contour.png") #c2b197;
+    width: 343px;
+    height: 503px;
+    left: 50%;
+    top: 50%;
+    overflow: hidden;
+    display: none;
+    position: absolute;
+
+    &.bonus{
+      background: url("../img/contour-bonus.png") #c2b197;
+    }
+
+    &.malus{
+      background: url("../img/contour-malus.png") #c2b197;
+    }
+
+}
+
+#inside{
+    width: 320px;
+    height : 480px;
+    position: absolute;
+    top: 10px;
+    overflow: hidden;
+    left: 10px;
+}
+
+#vvvvv-sky{
+    position: absolute;
+    top: 0;
+    width: 320px;
+    height : 945px;
+    background: url("../assets/bg.png") repeat-x;
+}
+
+#vvvvv-moon{
+    position: absolute;
+    left: 240px;
+    z-index: 4;
+    top: -500px;
+    width: 25px;
+    height: 23px;
+    background: url("../assets/moon.png");
+}
+
+#vvvvv-end{
+    position: absolute;
+    top: -3762px;
+    width: 320px;
+    height : 243px;
+    z-index:10;
+    background: url("../assets/graphics/maison.gif") repeat-x;
+}
+
+//Globals 
+.play-btn, .highscores-btn, .back-btn{
+    margin: 0 auto 5px auto;
+    background:  url("../img/home/sprite.png");
+    width : 201px;
+    height: 42px;
+    cursor : pointer;
+    background-size: 100%;
+}
+
+.back-btn{
+    margin: 40px auto 5px auto;
+    background-position: 0 -86px;
+}
+
+.credits-btn{
+    position: absolute;
+    z-index: 1;
+    bottom: 12px;
+    left: 140px;
+    cursor: pointer;
+}
+#menus{
+
+  >div{
+      width: 320px;
+      height: 480px;
+      position: absolute;
+      z-index: 10;
+      top: 0;
+
+      &#home{
+
+          z-index: 15;
+        
+          &.launchanim{
+                top: -290px;
+                @include transition(all 1000ms cubic-bezier(0.165, 0.840, 0.440, 1.000));
+
+                .presents, .title, .play-btn, .highscores-btn, .credits-btn, .devices{
+                    @include transition(all 800ms cubic-bezier(0.165, 0.840, 0.440, 1.000));
+                    opacity: 0;
+                }
+
+                .credits-btn{
+                    display: none;
+                }
+          }
+
+            .presents{
+               margin: 30px auto 15px auto;
+            }
+
+            .title{
+                margin: 0 auto 30px auto;
+            }
+
+            .play-btn, .highscores-btn, .credits-btn{
+                cursor : pointer;
+                margin: 0 auto;
+            }
+
+          .play-btn{
+              margin: 0 auto 5px auto;
+          }
+
+        .highscores-btn{
+          background-position: 0 -43px;
+          margin: 0 auto 20px auto;
+        }
+
+        .devices{
+          margin: 0 auto;
+          background:  url("../img/home/devices.png");
+          width : 81px;
+          height: 45px;
+          background-size: 100%;
+        }
+
+        .credits-btn{
+            position: absolute;
+            z-index: 1;
+            bottom: 12px;
+            left: 140px;
+            cursor: pointer;
+        }
+
+        .santagif{
+
+            &.goaway{
+                @include transform (translate3d(-350px,0,0));
+                opacity: 0;
+                @include transition(all 800ms cubic-bezier(0.165, 0.840, 0.440, 1.000));
+            }
+        }
+      }
+
+    &#game-ui{
+      z-index: 10;
+      display: block;
+      top: -100px;
+
+      &.active{
+          top: 0px;
+          @include transition(top 800ms cubic-bezier(0.165, 0.840, 0.440, 1.000));
+      }
+
+      #counters{
+        float: right;
+        margin: 10px 10px 0 0;
+        
+          >div{
+            float: left;
+            p{
+              margin: 0 12px 0 ;
+              display: block;
+              text-align:left;
+              color: $font-color;
+            }
+            div{
+               background : url("../img/game/score.png");
+               background-position : 0 -22px;   
+               width: 66px;
+               height: 22px;
+               margin: 0 12px 0 ;
+            }
+
+            &:last-child {
+              p{
+                  margin: 0;
+              }
+
+              div{
+                margin: 0;
+                background-position : 0 0px;   
+              }
+            }
+          }
+        }
+    }
+
+     &#end{
+        display: none;
+        height: 380px;
+        padding: 100px 0 0 0;
+
+        p{
+          color: $font-color;
+        }
+
+        #endscore{
+            background: url("../img/end/endscore.png");
+            width: 206px;
+            height: 46px;
+            background-size: 100%;
+            margin: 0 auto 8px auto;
+
+            p{
+              line-height: 49px;
+              font-size: 18px;
+
+              &.valid{
+                color: #128828;
+              }
+            }
+        }
+
+        form{
+            width: 210px;
+            margin: 0 auto;
+             @include clearfix;
+
+            .name{
+              background: url("../img/end/input.png");
+              width: 136px;
+              height: 42px;
+              padding: 0 10px;
+              background-size: 100%;
+              color: #6B5557;
+              border: 0 none;
+              float: left;
+              font: 13px/42px OCRAStd, Arial, sans-serif;
+
+              &:focus{
+                outline: none;
+              }
+          }
+          .submit{
+              cursor: pointer;
+              background: url("../img/end/submit.png");
+              width: 52px;
+              margin: 0;
+              height: 42px;
+              border: 0 none;
+              background-size: 100%;
+          }
+
+        }
+
+        .btns{
+            margin: 5px auto 10px auto;
+
+            @include clearfix;
+
+            width: 210px;
+            .replay{
+                cursor: pointer;
+                background: url("../img/end/replay.png");
+                width: 76px;
+                margin: 0;
+                height: 42px;
+                float: left;
+                background-size: 100%;
+            }
+
+            .highscores{
+                background: url("../img/end/highscores.png");
+                width: 123px;
+                margin: 0 0 0 87px;
+                height: 41px;
+                cursor: pointer;
+                background-size: 100%;
+            }
+        } //BTNS
+
+        .santawin{
+
+            position:absolute;
+            bottom: -200px;
+            left : 118px;
+
+            &.active{
+                 bottom: 30px;
+                 @include transition(all 800ms cubic-bezier(0.175,  0.885, 0.320, 1.275) 2000ms);
+            }
+        }
+
+     } //END
+
+      &#highscores, &#credits{
+          margin: 20px 0 0 0;
+          display: none;
+
+          .grid{
+              margin: 0 auto 40px auto;
+              background: url("../img/highscores/grid1.png");
+              width: 258px;
+              height: 214px;
+              position: relative;
+              background-size: 100%;
+
+              .arrows{
+
+                  div{
+                      background: url("../img/highscores/arrows.png");
+                      right: 10px;
+                      top: 50px;
+                      width: 20px;
+                      height: 16px;
+                      background-size: 100%;
+                      position: absolute;
+                      cursor: pointer;
+
+                      &.bottom{
+                        top: 172px;
+                        background-position: 0 -16px;
+                      }
+                  }
+              }
+
+            .table-wrapper{
+                
+                position: relative;
+                top: 50px;
+                overflow: hidden;
+                height: 145px;
+            }
+
+            .table{
+                  display: block;
+                  position: absolute;
+                  top: 0;
+                
+                >div{
+                    display: table-row;
+
+                    &.thisplayer{
+                        >div{
+                          color: #d32424;
+                        }
+                    }
+
+                    >div{
+                        display: table-cell;
+                        color: $font-color;
+                        height: 25px;
+
+
+                        
+                        &:first-child{
+                            width: 53px;
+                        }
+
+                        &:nth-child(2){
+                            width: 87px;
+                            text-align: left;
+                        }
+
+                        &:nth-child(3){
+                            width: 32px;
+                        }
+                    }
+                }
+            }
+        } // GRID
+
+
+        .credits-image{
+          background:  url("../img/home/sprite.png");
+          width : 201px;
+          height: 42px;
+          margin: 10px auto;
+          background-position : 0 -128px;
+          background-size: 100%;  
+        }
+
+        .profile{
+          width : 201px;
+          margin: 0 auto;
+          text-align: left;
+          height: 70px;
+          img{
+            float: left;
+          }
+          div{
+            float: left;
+            padding: 15px 0 0 8px;
+            p{
+              font-size:11px;
+              color: #ECF1E5;
+            }
+
+            a{
+              font-size:12px;
+              color:blue;
+            }
+          }
+        }
+
+        .music a{
+            color: $font-color;
+            font-size: 11px;
+        }
+
+     }
+  }
+} // #menus
+
+
+input::-webkit-input-placeholder {
+    color:    #6B5557;
+}
+input:-moz-placeholder {
+    color:    #6B5557;
+}
+input:-ms-input-placeholder {
+    color:    #6B5557;
+}
+
+
+
+//Mobile styles
+@media only screen and (max-device-width: 480px) {
+
+    body{
+        background: #222;
+        width: 320px;
+        height: 480px;
+        overflow: auto;
+    }
+
+    #vvvvv{
+        background: none;
+        width: 320px;
+        height: 480px;
+        position: relative;
+        left: 0;
+        top: 0;
+        margin: 0;
+    }
+
+    #inside{
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 320px;
+        height: 480px;
+        overflow: hidden;
+    }
+}
