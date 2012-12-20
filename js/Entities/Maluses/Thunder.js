@@ -40,7 +40,7 @@ Thunder.prototype = {
 
 		//We wait before spawning this again
 		this.spawnInterval = 0;
-		this.spawnMaxInterval = random(2, 10);
+		this.spawnMaxInterval = random(4, 14);
 		this.hasToDraw = true;
 
 		//EFFECTS

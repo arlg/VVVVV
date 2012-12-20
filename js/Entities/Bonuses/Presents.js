@@ -27,7 +27,7 @@ Presents.prototype = {
 
 		//We wait before spawning this again
 		this.spawnInterval = 0;
-		this.spawnMaxInterval = random(1, 2);
+		this.spawnMaxInterval = random(1, 9);
 		this.hasToDraw = true;
 
 		//Flags
@@ -36,7 +36,7 @@ Presents.prototype = {
 		//EFFECTS
 		this.effect = 0.1;
 
-		this.linearSpeed = random(-30, -70);
+		this.linearSpeed = random(-10, -100);
 
 		/*
 			Bounding box

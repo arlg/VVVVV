@@ -33,7 +33,7 @@ Snow.prototype = {
 
 		//We wait before spawning this again
 		this.spawnInterval = 0;
-		this.spawnMaxInterval = random(1, 10);
+		this.spawnMaxInterval = random(1, 15);
 		this.hasToDraw = true; //We don't draw if it's offscreen
 		
 		//EFFECTS
