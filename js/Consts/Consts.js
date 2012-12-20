@@ -37,7 +37,7 @@ var GLOBAL_VARS = {
 	CURRENT_TIME : 0,
 	ACCELERATION : 1,	// starting acceleration
 	MAX_ACCELERATION : 5,
-	MAX_GAME_TIME : 400, // game time if no acceleration
+	MAX_GAME_TIME : 450, // game time if no acceleration
 	GAME_STARTED : false,
 	GAME_ENDED : false
 };
