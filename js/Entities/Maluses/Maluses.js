@@ -32,19 +32,19 @@ Maluses.prototype = {
 
 			this.malusesEntities.push(snow);
 		}
-		
-		for (var j = 3 - 1; j >= 0; j--) {
+
+		for (var j = 2 - 1; j >= 0; j--) {
 			var yeti = new Yeti(this.ctx);
 			yeti.Y = CONSTS.CANVAS_HEIGHT + random(100, 500);
 			this.malusesEntities.push(yeti);
 		}
 
-		for (var z = 4 - 1; z >= 0; z--) {
+		for (var z = 3 - 1; z >= 0; z--) {
 			var thunder = new Thunder(this.ctx);
 			thunder.Y = CONSTS.CANVAS_HEIGHT + thunder.height + random(0, 400);
 			this.malusesEntities.push(thunder);
 		}
-		
+
 	},
 
 	step : function(delta){
@@ -56,5 +56,5 @@ Maluses.prototype = {
 			}
 		}
 	}
-	
+
 };

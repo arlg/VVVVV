@@ -37,7 +37,7 @@ RangiferTarandus.prototype = {
 
 		//Special stuffs - Oscillation
 		this.origX = 0;
-		this.amplitude = random(50, 70);
+		this.amplitude = random(40, 60);
 		this.period = random(800, 1000);
 
 		this.linearSpeed = random(-120, -170);
@@ -100,7 +100,7 @@ RangiferTarandus.prototype = {
 		}
 
 		this.updateBoundingBox();
-			
+
 	},
 
 	draw : function() {

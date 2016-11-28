@@ -28,7 +28,7 @@ Thunder.prototype = {
 		this.actualInterval = 0;
 		this.maxInterval = (0.5 + random(10, 20)) <<0;   //Changing speed
 
-		this.linearSpeedX = random(15, 30);
+		this.linearSpeedX = random(10, 20);
 		this.linearSpeedY = random(-80, -100);
 
 		//Flags
@@ -40,7 +40,7 @@ Thunder.prototype = {
 
 		//We wait before spawning this again
 		this.spawnInterval = 0;
-		this.spawnMaxInterval = random(4, 14);
+		this.spawnMaxInterval = random(7, 20);
 		this.hasToDraw = true;
 
 		//EFFECTS
@@ -88,7 +88,7 @@ Thunder.prototype = {
 	step : function(delta){
 
 			if(this.Y + this.height < 0) {
-				//Checks if we can spawn it again, desactivates drawing 
+				//Checks if we can spawn it again, desactivates drawing
 				this.spawnInterval += delta;
 				this.hasToDraw = false;
 				if(this.spawnInterval > this.spawnMaxInterval) {
@@ -121,7 +121,7 @@ Thunder.prototype = {
 			this.actualInterval++;
 
 			this.updateBoundingBox();
-			
+
 	},
 
 	draw : function() {
@@ -131,5 +131,5 @@ Thunder.prototype = {
 	}
 
 	// destroy ??
-	
+
 };

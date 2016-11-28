@@ -19,9 +19,8 @@ body {
   padding: 0;
   text-align: center;
   background: #222;
-  background: url("../img/background.png");
+  background: url("../img/background.png") no-repeat center fixed;
   width: 100%;
-  background-position: center center;
   height: 675px;
   overflow: hidden;
   background-size: cover; }

@@ -18,8 +18,8 @@ Snow.prototype = {
 		this.ctx = ctx;
 		this.X = 0;
 		this.Y = 0;
-		this.width = 114;
-		this.height = 74;
+		this.width = 57; // Half size
+		this.height = 37;
 		this.spriteUrl = "assets/graphics/malus/john-snow.png";
 
 		this.totalFrames = 2; //real number -1
@@ -35,7 +35,7 @@ Snow.prototype = {
 		this.spawnInterval = 0;
 		this.spawnMaxInterval = random(1, 15);
 		this.hasToDraw = true; //We don't draw if it's offscreen
-		
+
 		//EFFECTS
 		this.effect = 0.1;
 
@@ -81,7 +81,7 @@ Snow.prototype = {
 		//If he is offscreen on top, replace at the bottom
 		if(this.Y + this.height < 0) {
 
-			//Checks if we can spawn it again, desactivates drawing 
+			//Checks if we can spawn it again, desactivates drawing
 			this.spawnInterval += delta;
 			this.hasToDraw = false;
 			if(this.spawnInterval > this.spawnMaxInterval) {
